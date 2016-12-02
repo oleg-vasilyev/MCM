@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Simulation</title>
+
+	<script src="node_modules/d3/d3.js"></script>
+	<script src="node_modules/function-plot/dist/function-plot.js"></script>
+
+	<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="page-header" id="banner">
+			<div class="row">
+				<div class="col-sm-6">
+					<h1>Метод Монте-Карло</h1>
+
+					<p class="lead">Васильев Олег | ПИр-131</p>
+				</div>
+				<div class="col-sm-6">
+					<div class="well infobox">
+						<div class="row">
+							<div class="form-group">
+								<label for="function" class="control-label col-sm-2">Функция</label>
+
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="function" placeholder="1.5 * x + 6.4" value="1.5 * x + 6.4">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group label-floating">
+									<label for="start" class="control-label">От</label>
+									<input type="text" class="form-control" id="start" value="-10">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group label-floating">
+									<label for="finish" class="control-label">До</label>
+									<input type="text" class="form-control" id="finish" value="10">
+								</div>
+							</div>
+						</div>
+						<div class="container">
+							<a href="javascript:mcm.drawPlot();" class="btn btn-default btn-lg btn-raised btn-primary">построить график</a>
+						</div>
+						<div class="row">
+							<div class="form-group">
+								<label for="pointCount" class="control-label col-sm-2">Количество точек</label>
+
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="pointCount" placeholder="100" value="100">
+								</div>
+							</div>
+						</div>
+						<div class="container">
+							<a href="javascript:mcm.addPoints(document.getElementById('pointCount').value)" class="btn btn-default btn-raised btn-primary">добавить</a>
+							<a href="javascript:mcm.getSquare()" class="btn btn-default btn-raised btn-primary btn-lg">Вычислить площадь</a>
+
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="plot"></div>
+
+	</div>
+
+
+
+
+	<script src="monteCarloMethod.js"></script>
+	<script>let mcm = new monteCarloMethod();</script>
+
+	<script src="node_modules\jquery\dist\jquery.min.js"></script>
+	<script src="node_modules\bootstrap\dist\js\bootstrap.min.js"></script>
+	<script src="node_modules\bootstrap-material-design\dist\js\material.min.js"></script>
+	<script src="node_modules\bootstrap-material-design\dist\js\ripples.min.js"></script>
+
+	<script>$.material.init()</script>
+
+</body>
+
+</html>
